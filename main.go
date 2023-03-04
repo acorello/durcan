@@ -32,6 +32,7 @@ func main() {
 func dailyAverageMessage(overDays int, duration time.Duration) (dailyAverage string) {
 	if overDays > 0 {
 		average := duration / time.Duration(overDays)
+		average = average.Round(5 * time.Minute)
 		dailyAverage = fmt.Sprintln("\tdaily average:", average)
 	}
 	return
